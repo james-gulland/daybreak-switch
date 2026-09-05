@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Sun">
+  <!--
+    The knob's sun, flattened to sRGB. The CSS rim is a conic gradient; here it is a
+    vertical gradient whose stops sit where each conic angle meets the circle
+    (offset = (1 - cos angle) / 2), so the bevel reads the same top to bottom.
+  -->
+  <defs>
+    <linearGradient id="face" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffd952" />
+      <stop offset="0.55" stop-color="#ffcc2e" />
+      <stop offset="1" stop-color="#fdc21f" />
+    </linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffe680" />
+      <stop offset="0.329" stop-color="#ffd54a" />
+      <stop offset="0.821" stop-color="#f2a800" />
+      <stop offset="1" stop-color="#d98c00" />
+    </linearGradient>
+  </defs>
+  <circle cx="16" cy="16" r="13.95" fill="url(#face)" />
+  <circle cx="16" cy="16" r="14.48" fill="none" stroke="url(#rim)" stroke-width="1.05" />
+</svg>
