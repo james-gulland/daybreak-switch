@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 270" width="1200" height="1080">
+  <defs>
+    <clipPath id="pill"><rect width="240" height="100" rx="50.0"/></clipPath>
+    <clipPath id="sunclip"><circle cx="50.0" cy="50.0" r="39.4"/></clipPath>
+    <clipPath id="moonclip"><circle cx="190.0" cy="50.0" r="39.4"/></clipPath>
+    <filter id="cloudsh" x="-10%" y="-30%" width="120%" height="160%"><feDropShadow dx="0" dy="-2" stdDeviation="2" flood-color="#1d4f8a" flood-opacity="0.2"/></filter>
+    <filter id="blur3" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="3.5"/></filter>
+    <filter id="blur5" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="5"/></filter>
+    <filter id="blur7" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="6"/></filter>
+    <filter id="blur8" x="-20%" y="-40%" width="140%" height="180%"><feGaussianBlur stdDeviation="7"/></filter>
+    <radialGradient id="sunbase" cx="40%" cy="34%" r="70%"><stop offset="0" stop-color="#ffd447"/><stop offset=".7" stop-color="#ffc930"/><stop offset="1" stop-color="#ffc226"/></radialGradient>
+    <radialGradient id="sunrim"><stop offset=".84" stop-color="#e98e06" stop-opacity="0"/><stop offset=".93" stop-color="#e98e06" stop-opacity=".45"/><stop offset="1" stop-color="#d97f00" stop-opacity=".9"/></radialGradient>
+    <radialGradient id="moonbase" cx="40%" cy="34%" r="70%"><stop offset="0" stop-color="#e6e9ef"/><stop offset=".6" stop-color="#d6dae3"/><stop offset="1" stop-color="#cbd0db"/></radialGradient>
+    <radialGradient id="moonrim"><stop offset=".84" stop-color="#7c8598" stop-opacity="0"/><stop offset=".93" stop-color="#7c8598" stop-opacity=".35"/><stop offset="1" stop-color="#6d768a" stop-opacity=".8"/></radialGradient>
+    <radialGradient id="craterrim"><stop offset=".78" stop-color="#5d6678" stop-opacity="0"/><stop offset="1" stop-color="#5d6678" stop-opacity=".45"/></radialGradient>
+  </defs>
+  <rect width="300" height="270" fill="#e9ecf3"/>
+  
+  <g transform="translate(30 30)">
+    <rect width="240" height="100" rx="50.0" fill="#000" opacity=".22" filter="url(#blur8)" transform="translate(0 8)"/>
+    <rect width="240" height="100" rx="50.0" fill="#fff" opacity=".9" transform="translate(0 -1.5)"/>
+    <g clip-path="url(#pill)"><rect width="240" height="100" fill="#88c7f6"/><circle cx="50.0" cy="50.0" r="102.4" fill="rgba(10,80,190,0.17)"/><circle cx="50.0" cy="50.0" r="81.4" fill="rgba(10,80,190,0.17)"/><circle cx="50.0" cy="50.0" r="60.4" fill="rgba(10,80,190,0.17)"/><g fill="#a5d3f7" filter="url(#cloudsh)"><circle cx="100" cy="82" r="20"/><circle cx="134" cy="64" r="31"/><circle cx="182" cy="60" r="31"/><circle cx="226" cy="66" r="31"/><rect x="100" y="70" width="160" height="100"/></g><g fill="#cce4fa" filter="url(#cloudsh)"><circle cx="116" cy="86" r="18"/><circle cx="152" cy="80" r="23"/><circle cx="173" cy="82" r="18"/><circle cx="194" cy="78" r="23"/><circle cx="232" cy="84" r="22"/><rect x="116" y="86" width="144" height="100"/></g><g fill="#ecf4fd" filter="url(#cloudsh)"><circle cx="128" cy="96" r="14"/><circle cx="150" cy="98" r="12"/><circle cx="170" cy="92" r="16"/><circle cx="190" cy="97" r="13"/><circle cx="208" cy="91" r="16"/><circle cx="226" cy="97" r="12"/><circle cx="242" cy="94" r="14"/><rect x="128" y="96" width="132" height="100"/></g><path d="M-60,-60 h360 v220 h-360 z M0,50.0 a50.0,50.0 0 0 1 50.0,-50.0 h140 a50.0,50.0 0 0 1 50.0,50.0 a50.0,50.0 0 0 1 -50.0,50.0 h-140 a50.0,50.0 0 0 1 -50.0,-50.0 z" fill="#06133a" fill-rule="evenodd" opacity="0.5" filter="url(#blur3)"/><path d="M-60,-60 h360 v220 h-360 z M0,59.0 a50.0,50.0 0 0 1 50.0,-50.0 h140 a50.0,50.0 0 0 1 50.0,50.0 a50.0,50.0 0 0 1 -50.0,50.0 h-140 a50.0,50.0 0 0 1 -50.0,-50.0 z" fill="#06133a" fill-rule="evenodd" opacity="0.75" filter="url(#blur5)"/></g>
+    <circle cx="53.0" cy="56.0" r="39.4" fill="#000" opacity=".42" filter="url(#blur7)"/>
+    <g clip-path="url(#sunclip)">
+      <circle cx="50.0" cy="50.0" r="39.4" fill="#e98e06"/>
+      <circle cx="47.6" cy="46.4" r="39.4" fill="url(#sunbase)"/>
+      <circle cx="50.0" cy="50.0" r="39.4" fill="url(#sunrim)"/>
+    </g>
+  </g>
+  
+  <g transform="translate(30 145)">
+    <rect width="240" height="100" rx="50.0" fill="#000" opacity=".22" filter="url(#blur8)" transform="translate(0 8)"/>
+    <rect width="240" height="100" rx="50.0" fill="#fff" opacity=".9" transform="translate(0 -1.5)"/>
+    <g clip-path="url(#pill)"><rect width="240" height="100" fill="#1c1f2c"/><circle cx="190.0" cy="50.0" r="102.4" fill="rgba(200,210,255,0.06)"/><circle cx="190.0" cy="50.0" r="81.4" fill="rgba(200,210,255,0.06)"/><circle cx="190.0" cy="50.0" r="60.4" fill="rgba(200,210,255,0.06)"/><g fill="#fff"><circle cx="19" cy="49" r="1.3"/><circle cx="60" cy="50" r="1.2"/><circle cx="44" cy="81" r="1.1"/><circle cx="85" cy="64" r="1.2"/><circle cx="112" cy="41" r="1.2"/><circle cx="136" cy="38" r="1.1"/><circle cx="70" cy="90" r="1.0"/><circle cx="150" cy="60" r="1.0"/><path transform="translate(44 25) scale(0.9166666666666666)" d="M0,-6 Q0,0 6,0 Q0,0 0,6 Q0,0 -6,0 Q0,0 0,-6 Z"/><path transform="translate(126 81) scale(0.7000000000000001)" d="M0,-6 Q0,0 6,0 Q0,0 0,6 Q0,0 -6,0 Q0,0 0,-6 Z"/></g><path d="M-60,-60 h360 v220 h-360 z M0,50.0 a50.0,50.0 0 0 1 50.0,-50.0 h140 a50.0,50.0 0 0 1 50.0,50.0 a50.0,50.0 0 0 1 -50.0,50.0 h-140 a50.0,50.0 0 0 1 -50.0,-50.0 z" fill="#000" fill-rule="evenodd" opacity="0.6" filter="url(#blur3)"/><path d="M-60,-60 h360 v220 h-360 z M0,59.0 a50.0,50.0 0 0 1 50.0,-50.0 h140 a50.0,50.0 0 0 1 50.0,50.0 a50.0,50.0 0 0 1 -50.0,50.0 h-140 a50.0,50.0 0 0 1 -50.0,-50.0 z" fill="#000" fill-rule="evenodd" opacity="0.85" filter="url(#blur5)"/></g>
+    <circle cx="193.0" cy="56.0" r="39.4" fill="#000" opacity=".42" filter="url(#blur7)"/>
+    <defs><clipPath id="crater169.51248.424"><circle cx="169.512" cy="48.424" r="12.608"/></clipPath><clipPath id="crater201.42629.512"><circle cx="201.426" cy="29.512" r="5.909999999999999"/></clipPath><clipPath id="crater205.7665.76"><circle cx="205.76" cy="65.76" r="8.274"/></clipPath></defs>
+    <g clip-path="url(#moonclip)">
+      <circle cx="190.0" cy="50.0" r="39.4" fill="#aeb5c4"/>
+      <circle cx="187.6" cy="46.4" r="39.4" fill="url(#moonbase)"/>
+      <circle cx="190.0" cy="50.0" r="39.4" fill="url(#moonrim)"/>
+      
+    <g clip-path="url(#crater169.51248.424)">
+      <circle cx="169.512" cy="48.424" r="12.608" fill="#7f889b"/>
+      <circle cx="169.512" cy="50.44128" r="12.608" fill="#a6adbd"/>
+      <circle cx="169.512" cy="48.424" r="12.608" fill="url(#craterrim)"/>
+    </g>
+    <g clip-path="url(#crater201.42629.512)">
+      <circle cx="201.426" cy="29.512" r="5.909999999999999" fill="#7f889b"/>
+      <circle cx="201.426" cy="30.4576" r="5.909999999999999" fill="#a6adbd"/>
+      <circle cx="201.426" cy="29.512" r="5.909999999999999" fill="url(#craterrim)"/>
+    </g>
+    <g clip-path="url(#crater205.7665.76)">
+      <circle cx="205.76" cy="65.76" r="8.274" fill="#7f889b"/>
+      <circle cx="205.76" cy="67.08384000000001" r="8.274" fill="#a6adbd"/>
+      <circle cx="205.76" cy="65.76" r="8.274" fill="url(#craterrim)"/>
+    </g>
+    </g>
+  </g>
+</svg>

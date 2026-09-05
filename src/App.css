@@ -1,0 +1,33 @@
+.app {
+  display: grid;
+  place-items: center;
+  background: #e9ecf3;
+  color: #2b3140;
+}
+
+.demo {
+  display: grid;
+  gap: 2.5rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.demo h1 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.demo__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.demo__row--controlled p {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}

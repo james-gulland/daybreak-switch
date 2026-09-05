@@ -1,0 +1,264 @@
+/*
+ * DayNightSwitch
+ * Sizing is driven by --h (track height). Everything else derives from it.
+ * Motion: a single ease-in-out curve, no overshoot, no bounce.
+ */
+.dn-switch {
+  --h: 120px;
+  --w: calc(var(--h) * 2.2);
+  --pad: calc(var(--h) * 0.08);
+  --knob: calc(var(--h) - var(--pad) * 1.8);
+  --travel: calc(var(--w) - var(--pad) * 2 - var(--knob));
+  --ring-step: calc(var(--h) * 0.24);
+
+  --dur: 600ms;
+  --ease: cubic-bezier(0.45, 0.05, 0.2, 1);
+
+  --bevel: calc(var(--h) * 0.025);
+
+  all: unset;
+  display: inline-block;
+  box-sizing: content-box;
+  width: var(--w);
+  height: var(--h);
+  padding: var(--bevel);
+  border-radius: calc(var(--h) / 2 + var(--bevel));
+  /* bevel ring: dark lip at the top (0deg) sweeping to a light lip at the bottom (180deg) */
+  background: conic-gradient(
+    from 0deg,
+    rgba(8, 20, 50, 0.3) 0deg,
+    rgba(8, 20, 50, 0.12) 70deg,
+    rgba(255, 255, 255, 0.5) 130deg,
+    rgba(255, 255, 255, 0.9) 180deg,
+    rgba(255, 255, 255, 0.5) 230deg,
+    rgba(8, 20, 50, 0.12) 290deg,
+    rgba(8, 20, 50, 0.3) 360deg
+  );
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.dn-switch:focus-visible {
+  outline: 3px solid #2f89dc;
+  outline-offset: 4px;
+}
+
+.dn-switch:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.dn-switch__track {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: calc(var(--h) / 2);
+  overflow: hidden;
+  isolation: isolate;
+  background: #3d97e4;
+  transition: background-color var(--dur) var(--ease);
+  /* the outer bevel is the gradient ring on .dn-switch; the inner shadow lives on .dn-switch__inset */
+}
+
+/* ---- recessed inner edge ---------------------------------------------- */
+.dn-switch__inset {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+  box-shadow:
+    inset 0 0 calc(var(--h) * 0.2) rgba(8, 20, 50, 0.42),
+    inset 0 calc(var(--h) * 0.16) calc(var(--h) * 0.1) rgba(8, 20, 50, 0.58);
+  transition: box-shadow var(--dur) var(--ease);
+}
+
+.dn-switch[data-state='night'] .dn-switch__inset {
+  box-shadow:
+    inset 0 0 calc(var(--h) * 0.1) rgba(0, 0, 0, 0.55),
+    inset 0 calc(var(--h) * 0.06) calc(var(--h) * 0.12) rgba(0, 0, 0, 0.6),
+    inset 0 calc(var(--h) * -0.02) calc(var(--h) * 0.05) rgba(255, 255, 255, 0.08);
+}
+
+.dn-switch[data-state='night'] .dn-switch__track {
+  background: #1d2030;
+}
+
+/* ---- sky layers ------------------------------------------------------- */
+.dn-switch__sky {
+  position: absolute;
+  inset: 0;
+  transition: opacity var(--dur) var(--ease);
+}
+
+.dn-switch__sky--day {
+  background: linear-gradient(90deg, #2f89dc 0%, #4ba3ea 55%, #7cc0f4 100%);
+  opacity: 1;
+}
+
+.dn-switch__sky--night {
+  background: linear-gradient(90deg, #171a26 0%, #22263a 60%, #2c3148 100%);
+  opacity: 0;
+}
+
+.dn-switch[data-state='night'] .dn-switch__sky--day {
+  opacity: 0;
+}
+
+.dn-switch[data-state='night'] .dn-switch__sky--night {
+  opacity: 1;
+}
+
+/* ---- scenery ---------------------------------------------------------- */
+.dn-switch__clouds,
+.dn-switch__stars {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition:
+    transform var(--dur) var(--ease),
+    opacity var(--dur) var(--ease);
+}
+
+.dn-switch__clouds {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.dn-switch__stars {
+  transform: translateY(-40%);
+  opacity: 0;
+}
+
+.dn-switch[data-state='night'] .dn-switch__clouds {
+  transform: translateY(60%);
+  opacity: 0;
+}
+
+.dn-switch[data-state='night'] .dn-switch__stars {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ---- thumb (knob + rings) -------------------------------------------- */
+.dn-switch__thumb {
+  position: absolute;
+  top: var(--pad);
+  left: var(--pad);
+  width: var(--knob);
+  height: var(--knob);
+  z-index: 2;
+  transform: translateX(0);
+  transition: transform var(--dur) var(--ease);
+  will-change: transform;
+}
+
+.dn-switch[data-state='night'] .dn-switch__thumb {
+  transform: translateX(var(--travel));
+}
+
+/* concentric halo rings, centred on the knob, clipped by the track */
+.dn-switch__ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.07);
+  translate: -50% -50%;
+  pointer-events: none;
+}
+
+.dn-switch__ring--1 {
+  width: calc(var(--knob) + var(--ring-step) * 2);
+  height: calc(var(--knob) + var(--ring-step) * 2);
+}
+
+.dn-switch__ring--2 {
+  width: calc(var(--knob) + var(--ring-step) * 4);
+  height: calc(var(--knob) + var(--ring-step) * 4);
+}
+
+.dn-switch__ring--3 {
+  width: calc(var(--knob) + var(--ring-step) * 6);
+  height: calc(var(--knob) + var(--ring-step) * 6);
+}
+
+.dn-switch__knob {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow:
+    0 calc(var(--h) * 0.05) calc(var(--h) * 0.12) rgba(0, 0, 0, 0.35),
+    0 calc(var(--h) * 0.01) calc(var(--h) * 0.03) rgba(0, 0, 0, 0.25);
+}
+
+.dn-switch__sun,
+.dn-switch__moon {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  transition:
+    opacity var(--dur) var(--ease),
+    transform var(--dur) var(--ease);
+}
+
+.dn-switch__sun {
+  /* bevel rim: light lip at the top sweeping to a deep orange lip at the bottom */
+  border: calc(var(--h) * 0.03) solid transparent;
+  background:
+    linear-gradient(180deg, #ffd952 0%, #ffcc2e 55%, #fdc21f 100%) padding-box,
+    conic-gradient(
+      from 0deg,
+      #ffe680 0deg,
+      #ffd54a 70deg,
+      #f2a800 130deg,
+      #d98c00 180deg,
+      #f2a800 230deg,
+      #ffd54a 290deg,
+      #ffe680 360deg
+    ) border-box;
+  opacity: 1;
+}
+
+.dn-switch__moon {
+  /*
+   * Each crater is three stacked discs: the fill, nudged down a touch; a darker
+   * disc beneath it (shows as a thin shadow crescent along the top edge); and a
+   * lighter disc nudged further down (shows as a light rim along the bottom).
+   */
+  background:
+    radial-gradient(circle at 30% 47.8%, #9ba3b4 0 17%, transparent 18%),
+    radial-gradient(circle at 30% 46%, #6f778a 0 17%, transparent 18%),
+    radial-gradient(circle at 30% 49.2%, #dfe3ea 0 17%, transparent 18%),
+    radial-gradient(circle at 62% 25%, #9ba3b4 0 9%, transparent 10%),
+    radial-gradient(circle at 62% 24%, #6f778a 0 9%, transparent 10%),
+    radial-gradient(circle at 62% 25.8%, #dfe3ea 0 9%, transparent 10%),
+    radial-gradient(circle at 68% 71.4%, #9ba3b4 0 13%, transparent 14%),
+    radial-gradient(circle at 68% 70%, #6f778a 0 13%, transparent 14%),
+    radial-gradient(circle at 68% 72.6%, #dfe3ea 0 13%, transparent 14%),
+    #cfd4de;
+  box-shadow: inset 0 calc(var(--h) * -0.05) 0 rgba(0, 0, 0, 0.14);
+  opacity: 0;
+  /* rolls into place as it fades in */
+  transform: rotate(-90deg);
+}
+
+.dn-switch[data-state='night'] .dn-switch__sun {
+  opacity: 0;
+}
+
+.dn-switch[data-state='night'] .dn-switch__moon {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+/* ---- motion preferences ---------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .dn-switch {
+    --dur: 0ms;
+  }
+}
