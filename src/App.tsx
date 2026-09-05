@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="app">
       <section className="demo">
-        <h1>Daybreak Switch</h1>
+        <h1>daybreak</h1>
 
         <div className="demo__row">
           <div className="demo__item">
