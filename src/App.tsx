@@ -17,15 +17,17 @@ function SizePlayground() {
           <h2 id="size-demo-title">Make it yours</h2>
           <p>
             Everything in the switch is driven by one number: <code>size</code>. It sets the track
-            height in pixels (120 by default), and the width follows at 2.2× that. The knob, the
-            padding, the shadows, even the halo rings — they all scale from it, so a 40px switch is
-            a miniature of the 120px one, not a cropped version. Drag the slider and you'll see.
+            height in pixels, and the width follows at 2.2× that. The knob, the padding, the
+            shadows, even the halo rings - they all scale from it. Drag the slider and you'll see.
           </p>
           <p>
             There's also <code>disabled</code>, for when the switch should be visible but
             off-limits. It blocks clicks, sets the native disabled state, fades the opacity to 0.6
-            and swaps in a not-allowed cursor. Tick the checkbox to lock it, then try clicking — it
-            won't budge until you uncheck.
+            and swaps in a not-allowed cursor.
+          </p>
+          <p>
+            Accessibility is built in too, with keyboard support, screen-reader labels, a clear
+            focus state, reduced-motion support and high-contrast styling.
           </p>
         </div>
 
