@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/screen.png" alt="daybreak: two DaybreakSwitch examples, starting on day and night" />
+  <img src="public/screenshot.png" alt="daybreak: two DaybreakSwitch examples, starting on day and night" />
 </p>
 
 An animated day/night switch for React. Purely CSS-driven with inline SVGs, no animation library, no image assets.
