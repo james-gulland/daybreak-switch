@@ -1,10 +1,7 @@
-// import { useState } from "react";
 import { DaybreakSwitch } from "./components/DaybreakSwitch";
 import "./App.css";
 
 function App() {
-  // const [dark, setDark] = useState(false);
-
   return (
     <main className="app">
       <section className="demo">
@@ -29,13 +26,6 @@ function App() {
             </svg>
             <span>try it out!</span>
           </div>
-
-          {/* <div className="demo__row demo__row--controlled">
-            <div className="demo__item">
-              <label htmlFor="demo-theme">Dark mode</label>
-              <DaybreakSwitch id="demo-theme" checked={dark} onChange={setDark} size={32} />
-            </div>
-          </div> */}
         </div>
 
         <p className="credit">
@@ -63,14 +53,12 @@ function App() {
           </div>
 
           <div className="info__copy">
-            <h2 id="info-title">remember this guy?</h2>
-            <p>It's the classic UX designer vs. developer meme. But oh how times have changed...</p>
+            <h2 id="info-title">Remember this guy?</h2>
             <p>
-              With the assistance of Fable 5.1, I had recreated it in about 20 minutes. The first
-              prompt resolved pretty much most of the mechanics of the switch and the animation,
-              however, as with all ai-generated code, there was a lot of design finesse that needed
-              to be applied.
+              It's the classic UX designer vs. developer meme. Oh how the struggles were real... but
+              with ai tools like Fable 5.1, it now takes minutes to create.
             </p>
+            <p></p>
           </div>
         </div>
       </section>
