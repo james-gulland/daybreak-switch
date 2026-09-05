@@ -1,12 +1,12 @@
-# daybreak switch
+<p align="center">
+  <img src="public/screen.png" alt="daybreak: two DaybreakSwitch examples, starting on day and night" />
+</p>
 
 An animated day/night switch for React. Purely CSS-driven with inline SVGs, no animation library, no image assets.
 
 Under the hood it is a single `<button role="switch">`, so it keyboards and screen-reads like a checkbox.
 
-[Try it live](https://james-gulland.github.io/daybreak-switch/) · [jamesgulland.com](https://jamesgulland.com)
-
-![The daybreak switch in day mode, with a sun knob and clouds on a blue sky.](public/og-image.png)
+[Try it live](https://james-gulland.github.io/daybreak-switch/)
 
 ## Try it locally
 
