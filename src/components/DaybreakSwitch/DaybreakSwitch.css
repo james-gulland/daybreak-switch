@@ -8,13 +8,11 @@
   --w: calc(var(--h) * 2.2);
   --pad: calc(var(--h) * 0.08);
   --knob: calc(var(--h) - var(--pad) * 1.8);
+  --bevel: calc(var(--h) * 0.025);
   --travel: calc(var(--w) - var(--pad) * 2 - var(--knob));
   --ring-step: calc(var(--h) * 0.24);
-
   --dur: 600ms;
   --ease: cubic-bezier(0.45, 0.05, 0.2, 1);
-
-  --bevel: calc(var(--h) * 0.025);
 
   all: unset;
   position: relative;
