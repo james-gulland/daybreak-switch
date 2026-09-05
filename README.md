@@ -1,24 +1,20 @@
-# daybreak-switch
+# daybreak switch
 
 An animated day/night switch for React. Click it and the sun slides right, rolls over into a moon, the sky cross-fades to night, clouds sink out of frame and stars drift in. Everything is CSS and inline SVG, no animation library, no image assets.
 
 Under the hood it is a single `<button role="switch">`, so it keyboards and screen-reads like a checkbox.
 
-## Try it
+[Try it live](https://james-gulland.github.io/daybreak-switch/) · [jamesgulland.com](https://jamesgulland.com)
+
+![The daybreak switch in day mode, with a sun knob and clouds on a blue sky.](public/og-image.png)
+
+## Try it locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-`src/App.tsx` is a small demo page with an uncontrolled pair and one controlled instance.
-
-Other scripts:
-
-```bash
-npm run build     # tsc -b && vite build
-npm run lint
-npm run preview
 ```
 
 ## Using it in your own project
@@ -26,11 +22,13 @@ npm run preview
 There is no npm package. Copy the folder:
 
 ```
+
 src/components/DaybreakSwitch/
 ├── DaybreakSwitch.tsx
 ├── DaybreakSwitch.css
 └── index.ts
-```
+
+````
 
 The component imports its own CSS, so nothing else to wire up. It needs React 18 or newer and a bundler that can import a `.css` file from a module, which Vite, Next.js and Create React App all do.
 
@@ -40,7 +38,7 @@ import { DaybreakSwitch } from "./components/DaybreakSwitch";
 function Header() {
   return <DaybreakSwitch defaultChecked={false} />;
 }
-```
+````
 
 ## Props
 
@@ -75,7 +73,7 @@ Leave `checked` off and the switch keeps its own state. Use `onChange` if you wa
 Pass `checked` and you own the state. The switch renders what you give it and will not move on its own, so you have to handle `onChange`:
 
 ```tsx
-const [dark, setDark] = useState(false)
+const [dark, setDark] = useState(false);
 
 <label htmlFor="theme-switch">Dark mode</label>
 <DaybreakSwitch id="theme-switch" checked={dark} onChange={setDark} size={32} />
@@ -161,7 +159,7 @@ The root element carries `data-state="day"` or `data-state="night"`, which is wh
 
 - Renders `<button type="button" role="switch">` with `aria-checked` tracking state, so it is reachable by Tab and toggles on Space or Enter.
 - Prefer a visible `<label htmlFor>` (or `aria-labelledby`). Without one, `aria-label` defaults to `'Dark mode'`.
-- Focus ring is a two-colour outline on `:focus-visible` (dark inner, light outer), so it stays visible on light, dark, and blue surfaces, and only for keyboard users.
+- Focus ring is a dark outline plus a light halo on `:focus-visible`, so it stays visible on light, dark, and blue surfaces, and only for keyboard users.
 - Under `forced-colors: active` (Windows High Contrast) the decorative skies hide and the track/thumb use system colours.
 - Honours `prefers-reduced-motion`.
 - The SVG scenery is `aria-hidden`. Cloud filter ids are unique per instance.

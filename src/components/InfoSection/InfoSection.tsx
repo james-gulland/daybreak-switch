@@ -21,10 +21,10 @@ export function InfoSection() {
             minutes…
           </p>
           <p>
-            So I thought I would take a stab at it. I used Fable 5.1 to do much of the heavy lifting
-            on the layout and animation. But, as always with these tools, it still needed some design
-            finesse to get it exactly how I wanted. It repeatedly struggled with the cloud layers
-            and, after several revisions, I ended up recreating them manually.
+            So, I thought I would take a stab at it. I used Fable 5.1 to do much of the heavy
+            lifting on the layout and animation. But, as always with these tools, it still needed
+            some design finesse to get it exactly how I wanted. It repeatedly struggled with the
+            cloud layers and, after several revisions, I ended up recreating them manually.
           </p>
           <p>
             In Fable’s defence, I was working from a static image I found on Pinterest rather than a
@@ -33,7 +33,7 @@ export function InfoSection() {
             noticeably more accurate.
           </p>
           <p>
-            Even so, I’m really happy with how it turned out - a simple, playful switch that
+            Even so, I’m really happy with how it turned out - a simple yet playful switch that
             hopefully feels as fun to use as it was to create!
           </p>
         </div>
