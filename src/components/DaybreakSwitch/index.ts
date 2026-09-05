@@ -1,2 +1,2 @@
-export { DaybreakSwitch, default } from './DaybreakSwitch'
-export type { DaybreakSwitchProps } from './DaybreakSwitch'
+export { DaybreakSwitch, default } from "./DaybreakSwitch";
+export type { DaybreakSwitchProps } from "./DaybreakSwitch";

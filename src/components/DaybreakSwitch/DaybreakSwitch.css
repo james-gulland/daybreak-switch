@@ -17,6 +17,7 @@
   --bevel: calc(var(--h) * 0.025);
 
   all: unset;
+  position: relative;
   display: inline-block;
   box-sizing: content-box;
   width: var(--w);
@@ -39,9 +40,20 @@
   user-select: none;
 }
 
+/* Expand the hit area to 44px without changing the visual size. */
+.dn-switch::before {
+  content: "";
+  position: absolute;
+  top: min(0px, calc(50% - 22px));
+  right: min(0px, calc(50% - 22px));
+  bottom: min(0px, calc(50% - 22px));
+  left: min(0px, calc(50% - 22px));
+}
+
 .dn-switch:focus-visible {
-  outline: 3px solid #2f89dc;
-  outline-offset: 4px;
+  outline: 3px solid #111827;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px #f8fafc;
 }
 
 .dn-switch:disabled {
@@ -75,14 +87,14 @@
   transition: box-shadow var(--dur) var(--ease);
 }
 
-.dn-switch[data-state='night'] .dn-switch__inset {
+.dn-switch[data-state="night"] .dn-switch__inset {
   box-shadow:
     inset 0 0 calc(var(--h) * 0.1) rgba(0, 0, 0, 0.55),
     inset 0 calc(var(--h) * 0.06) calc(var(--h) * 0.12) rgba(0, 0, 0, 0.6),
     inset 0 calc(var(--h) * -0.02) calc(var(--h) * 0.05) rgba(255, 255, 255, 0.08);
 }
 
-.dn-switch[data-state='night'] .dn-switch__track {
+.dn-switch[data-state="night"] .dn-switch__track {
   background: #1d2030;
 }
 
@@ -103,11 +115,11 @@
   opacity: 0;
 }
 
-.dn-switch[data-state='night'] .dn-switch__sky--day {
+.dn-switch[data-state="night"] .dn-switch__sky--day {
   opacity: 0;
 }
 
-.dn-switch[data-state='night'] .dn-switch__sky--night {
+.dn-switch[data-state="night"] .dn-switch__sky--night {
   opacity: 1;
 }
 
@@ -134,12 +146,12 @@
   opacity: 0;
 }
 
-.dn-switch[data-state='night'] .dn-switch__clouds {
+.dn-switch[data-state="night"] .dn-switch__clouds {
   transform: translateY(60%);
   opacity: 0;
 }
 
-.dn-switch[data-state='night'] .dn-switch__stars {
+.dn-switch[data-state="night"] .dn-switch__stars {
   transform: translateY(0);
   opacity: 1;
 }
@@ -157,7 +169,7 @@
   will-change: transform;
 }
 
-.dn-switch[data-state='night'] .dn-switch__thumb {
+.dn-switch[data-state="night"] .dn-switch__thumb {
   transform: translateX(var(--travel));
 }
 
@@ -212,15 +224,16 @@
   background:
     linear-gradient(180deg, #ffd952 0%, #ffcc2e 55%, #fdc21f 100%) padding-box,
     conic-gradient(
-      from 0deg,
-      #ffe680 0deg,
-      #ffd54a 70deg,
-      #f2a800 130deg,
-      #d98c00 180deg,
-      #f2a800 230deg,
-      #ffd54a 290deg,
-      #ffe680 360deg
-    ) border-box;
+        from 0deg,
+        #ffe680 0deg,
+        #ffd54a 70deg,
+        #f2a800 130deg,
+        #d98c00 180deg,
+        #f2a800 230deg,
+        #ffd54a 290deg,
+        #ffe680 360deg
+      )
+      border-box;
   opacity: 1;
 }
 
@@ -239,19 +252,18 @@
     radial-gradient(circle at 62% 25.8%, #dfe3ea 0 9%, transparent 10%),
     radial-gradient(circle at 68% 71.4%, #9ba3b4 0 13%, transparent 14%),
     radial-gradient(circle at 68% 70%, #6f778a 0 13%, transparent 14%),
-    radial-gradient(circle at 68% 72.6%, #dfe3ea 0 13%, transparent 14%),
-    #cfd4de;
+    radial-gradient(circle at 68% 72.6%, #dfe3ea 0 13%, transparent 14%), #cfd4de;
   box-shadow: inset 0 calc(var(--h) * -0.05) 0 rgba(0, 0, 0, 0.14);
   opacity: 0;
   /* rolls into place as it fades in */
   transform: rotate(-90deg);
 }
 
-.dn-switch[data-state='night'] .dn-switch__sun {
+.dn-switch[data-state="night"] .dn-switch__sun {
   opacity: 0;
 }
 
-.dn-switch[data-state='night'] .dn-switch__moon {
+.dn-switch[data-state="night"] .dn-switch__moon {
   opacity: 1;
   transform: rotate(0deg);
 }
@@ -260,5 +272,44 @@
 @media (prefers-reduced-motion: reduce) {
   .dn-switch {
     --dur: 0ms;
+  }
+}
+
+/* ---- forced colors (Windows High Contrast) --------------------------- */
+@media (forced-colors: active) {
+  .dn-switch {
+    background: ButtonFace;
+    border: 2px solid ButtonText;
+    box-shadow: none;
+  }
+
+  .dn-switch:focus-visible {
+    outline: 3px solid Highlight;
+    outline-offset: 3px;
+    box-shadow: none;
+  }
+
+  .dn-switch:disabled {
+    opacity: 1;
+    border-style: dashed;
+  }
+
+  .dn-switch__sky,
+  .dn-switch__clouds,
+  .dn-switch__stars,
+  .dn-switch__ring,
+  .dn-switch__inset,
+  .dn-switch__sun,
+  .dn-switch__moon {
+    display: none;
+  }
+
+  .dn-switch__track {
+    background: Canvas;
+  }
+
+  .dn-switch__knob {
+    background: ButtonText;
+    box-shadow: none;
   }
 }

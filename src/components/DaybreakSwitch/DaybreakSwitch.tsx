@@ -1,18 +1,20 @@
-import { useState, type CSSProperties } from 'react'
-import './DaybreakSwitch.css'
+import { useId, useState, type CSSProperties } from "react";
+import "./DaybreakSwitch.css";
 
 export type DaybreakSwitchProps = {
   /** Controlled value. `true` = night, `false` = day. */
-  checked?: boolean
+  checked?: boolean;
   /** Initial value for uncontrolled usage. */
-  defaultChecked?: boolean
-  onChange?: (checked: boolean) => void
+  defaultChecked?: boolean;
+  onChange?: (checked: boolean) => void;
   /** Track height in px. Width scales with it. */
-  size?: number
-  disabled?: boolean
-  className?: string
-  'aria-label'?: string
-}
+  size?: number;
+  disabled?: boolean;
+  className?: string;
+  id?: string;
+  "aria-label"?: string;
+  "aria-labelledby"?: string;
+};
 
 export function DaybreakSwitch({
   checked,
@@ -21,30 +23,36 @@ export function DaybreakSwitch({
   size = 120,
   disabled = false,
   className,
-  'aria-label': ariaLabel = 'Toggle dark mode',
+  id,
+  "aria-label": ariaLabel,
+  "aria-labelledby": ariaLabelledby,
 }: DaybreakSwitchProps) {
-  const [internal, setInternal] = useState(defaultChecked)
-  const isControlled = checked !== undefined
-  const isNight = isControlled ? checked : internal
+  const filterId = `dn-cloud-shadow-${useId().replace(/:/g, "")}`;
+  const [internal, setInternal] = useState(defaultChecked);
+  const isControlled = checked !== undefined;
+  const isNight = isControlled ? checked : internal;
+  const accessibleName = ariaLabelledby ? undefined : (ariaLabel ?? (id ? undefined : "Dark mode"));
 
   const toggle = () => {
-    if (disabled) return
-    const next = !isNight
-    if (!isControlled) setInternal(next)
-    onChange?.(next)
-  }
+    if (disabled) return;
+    const next = !isNight;
+    if (!isControlled) setInternal(next);
+    onChange?.(next);
+  };
 
-  const style = { '--h': `${size}px` } as CSSProperties
+  const style = { "--h": `${size}px` } as CSSProperties;
 
   return (
     <button
+      id={id}
       type="button"
       role="switch"
       aria-checked={isNight}
-      aria-label={ariaLabel}
+      aria-label={accessibleName}
+      aria-labelledby={ariaLabelledby}
       disabled={disabled}
-      data-state={isNight ? 'night' : 'day'}
-      className={['dn-switch', className].filter(Boolean).join(' ')}
+      data-state={isNight ? "night" : "day"}
+      className={["dn-switch", className].filter(Boolean).join(" ")}
       style={style}
       onClick={toggle}
     >
@@ -87,12 +95,18 @@ export function DaybreakSwitch({
           aria-hidden="true"
         >
           <defs>
-            <filter id="dn-cloud-shadow" x="-10%" y="-30%" width="120%" height="160%">
-              <feDropShadow dx="0" dy="-2" stdDeviation="2" floodColor="#1d4f8a" floodOpacity="0.18" />
+            <filter id={filterId} x="-10%" y="-30%" width="120%" height="160%">
+              <feDropShadow
+                dx="0"
+                dy="-2"
+                stdDeviation="2"
+                floodColor="#1d4f8a"
+                floodOpacity="0.18"
+              />
             </filter>
           </defs>
           {/* back band */}
-          <g fill="#a4d3f6" filter="url(#dn-cloud-shadow)">
+          <g fill="#a4d3f6" filter={`url(#${filterId})`}>
             <circle cx="20" cy="62" r="40" />
             <circle cx="60" cy="90" r="40" />
             <circle cx="110" cy="86" r="38" />
@@ -101,7 +115,7 @@ export function DaybreakSwitch({
             <circle cx="220" cy="44" r="38" />
           </g>
           {/* front band */}
-          <g fill="#cde4fa" filter="url(#dn-cloud-shadow)">
+          <g fill="#cde4fa" filter={`url(#${filterId})`}>
             <circle cx="64" cy="105" r="20" />
             <circle cx="110" cy="116" r="40" />
             <circle cx="152" cy="88" r="20" />
@@ -127,7 +141,7 @@ export function DaybreakSwitch({
         </span>
       </span>
     </button>
-  )
+  );
 }
 
-export default DaybreakSwitch
+export default DaybreakSwitch;

@@ -27,6 +27,14 @@
   justify-content: center;
 }
 
-.demo__row--controlled p {
-  margin: 0;
+.demo__item {
+  display: grid;
+  gap: 0.75rem;
+  justify-items: center;
+}
+
+.demo__item label,
+.demo__item span {
+  font-size: 0.875rem;
+  font-weight: 500;
 }
