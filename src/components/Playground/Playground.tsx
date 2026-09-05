@@ -16,13 +16,13 @@ export function Playground() {
           <h2 id="size-demo-title">Make it yours</h2>
           <p>
             Everything in the switch is driven by one number: <code>size</code>. It sets the track
-            height in pixels, and the width follows at 2.2× that. The knob, the padding, the shadows,
-            even the halo rings - they all scale from it. Drag the slider and you'll see.
+            height in pixels, and the width follows at 2.2× that. The knob, the padding, the
+            shadows, even the halo rings - they all scale from it. Drag the slider and you'll see.
           </p>
           <p>
-            There's also <code>disabled</code>, for when the switch should be visible but off-limits.
-            It blocks clicks, sets the native disabled state, fades the opacity to 0.6 and swaps in a
-            not-allowed cursor.
+            There's also <code>disabled</code>, for when the switch should be visible but
+            off-limits. It blocks clicks, sets the native disabled state, fades the opacity to 0.6
+            and swaps in a not-allowed cursor.
           </p>
           <p>
             Accessibility is built in too, with keyboard support, screen-reader labels, a clear
@@ -39,6 +39,9 @@ export function Playground() {
               size={SIZE_DEFAULT}
               aria-labelledby="size-demo-disabled-label"
             />
+            <pre className="size-demo__code">
+              <code>{`<DaybreakSwitch disabled />`}</code>
+            </pre>
           </div>
 
           <div className="size-demo__example">
@@ -50,7 +53,9 @@ export function Playground() {
             </div>
             <div className="size-demo__control">
               <div className="size-demo__control-row">
-                <output htmlFor="size-slider">{size}px</output>
+                <output htmlFor="size-slider" className="size-demo__code">
+                  <code>{`<DaybreakSwitch size={${size}} />`}</code>
+                </output>
               </div>
               <input
                 id="size-slider"
@@ -65,7 +70,7 @@ export function Playground() {
                 <span>{SIZE_MAX}</span>
               </div>
             </div>
-            <label htmlFor="size-slider">Size</label>
+            <label htmlFor="size-slider">Size (px)</label>
           </div>
         </div>
       </div>

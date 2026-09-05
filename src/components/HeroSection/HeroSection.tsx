@@ -10,11 +10,17 @@ export function HeroSection() {
         <div className="hero__row">
           <div className="hero__item">
             <span id="hero-day-label">Starts on day</span>
-            <DaybreakSwitch defaultChecked={false} aria-labelledby="hero-day-label" />
+            <DaybreakSwitch aria-labelledby="hero-day-label" />
+            <pre className="hero__code">
+              <code>{`<DaybreakSwitch />`}</code>
+            </pre>
           </div>
           <div className="hero__item">
             <span id="hero-night-label">Starts on night</span>
             <DaybreakSwitch defaultChecked aria-labelledby="hero-night-label" />
+            <pre className="hero__code">
+              <code>{`<DaybreakSwitch defaultChecked>`}</code>
+            </pre>
           </div>
         </div>
 

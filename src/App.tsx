@@ -1,3 +1,4 @@
+import { Footer } from "./components/Footer/Footer";
 import { HeroSection } from "./components/HeroSection/HeroSection";
 import { InfoSection } from "./components/InfoSection/InfoSection";
 import { Playground } from "./components/Playground/Playground";
@@ -8,6 +9,7 @@ function App() {
       <HeroSection />
       <InfoSection />
       <Playground />
+      <Footer />
     </main>
   );
 }

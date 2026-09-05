@@ -23,6 +23,7 @@
 
 .size-demo__example {
   display: grid;
+  gap: 0.5rem;
   justify-items: center;
   width: 100%;
 }
@@ -66,6 +67,7 @@
   box-sizing: content-box;
   width: calc(var(--max-h) * 2.2 + var(--bevel) * 2);
   height: calc(var(--max-h) + var(--bevel) * 2);
+  padding-bottom: 1rem;
 }
 
 .size-demo__control {
@@ -78,13 +80,24 @@
   display: flex;
   align-items: baseline;
   justify-content: center;
-  font-size: 0.875rem;
-  font-weight: 500;
 }
 
-.size-demo__control output {
-  font-variant-numeric: tabular-nums;
+.size-demo__code {
+  margin: 0;
+  padding: 0.4rem 0.75rem;
+  border-radius: 0.5rem;
+  background: var(--page-color-section);
   color: var(--page-color-body);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.4;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.size-demo__code code {
+  font: inherit;
 }
 
 /* Flat, minimal controls in the page greys: a thin uniform track and a plain
