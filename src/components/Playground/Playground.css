@@ -39,7 +39,7 @@
 }
 
 .size-demo__copy h2 {
-  margin: 0 0 1.25rem;
+  margin: 0 0 1.5rem;
   font-size: clamp(2rem, 5vw, 3.5rem);
   line-height: 1.05;
   letter-spacing: -0.04em;

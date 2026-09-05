@@ -18,8 +18,9 @@
   justify-self: center;
   overflow: hidden;
   border-radius: 1.5rem;
-  background: var(--page-color-video);
-  box-shadow: 0 1.5rem 4rem oklch(from var(--page-color-shadow) l c h / 20%);
+  box-shadow:
+    0 0.75rem 1.5rem oklch(from var(--page-color-shadow) l c h / 28%),
+    0 2rem 5rem oklch(from var(--page-color-shadow) l c h / 45%);
 }
 
 .info__video iframe {
@@ -34,7 +35,7 @@
 }
 
 .info__copy h2 {
-  margin: 0 0 1.25rem;
+  margin: 0.5rem 0 1.5rem;
   font-size: clamp(2rem, 5vw, 3.5rem);
   line-height: 1.05;
   letter-spacing: -0.04em;
