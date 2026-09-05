@@ -57,10 +57,3 @@ h2 {
 .app {
   min-height: 100vh;
 }
-
-@media (max-width: 42rem) {
-  h1,
-  h2 {
-    font-size: 3rem;
-  }
-}

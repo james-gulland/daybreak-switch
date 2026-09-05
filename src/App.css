@@ -144,11 +144,23 @@
 
 .size-demo__playground {
   display: grid;
-  gap: 1.5rem;
+  gap: 2.5rem;
   align-content: center;
   justify-items: center;
   justify-self: center;
   align-self: center;
+}
+
+.size-demo__example {
+  display: grid;
+  justify-items: center;
+  width: 100%;
+}
+
+.size-demo__example > span,
+.size-demo__example > label {
+  font-size: 0.875rem;
+  font-weight: 500;
 }
 
 .size-demo__copy {
@@ -184,7 +196,6 @@
   box-sizing: content-box;
   width: calc(var(--max-h) * 2.2 + var(--bevel) * 2);
   height: calc(var(--max-h) + var(--bevel) * 2);
-  padding: 0.75rem;
 }
 
 .size-demo__control {
@@ -196,7 +207,7 @@
 .size-demo__control-row {
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
+  justify-content: center;
   font-size: 0.875rem;
   font-weight: 500;
 }
@@ -279,84 +290,6 @@
   color: var(--page-color-body);
   font-size: 0.75rem;
   font-variant-numeric: tabular-nums;
-}
-
-.size-demo__check {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 0.625rem;
-  width: min(100%, 18rem);
-  font-size: 0.875rem;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.size-demo__check input {
-  position: absolute;
-  width: 1.125rem;
-  height: 1.125rem;
-  margin: 0;
-  opacity: 0;
-  cursor: pointer;
-}
-
-.size-demo__check-box {
-  position: relative;
-  flex: none;
-  box-sizing: border-box;
-  width: 1.125rem;
-  height: 1.125rem;
-  border: 0.09375rem solid var(--control-color-border);
-  border-radius: 0.3125rem;
-  background: transparent;
-  transition:
-    background-color 150ms ease,
-    border-color 150ms ease;
-}
-
-.size-demo__check:hover input:not(:checked) + .size-demo__check-box {
-  border-color: var(--control-color-border-hover);
-}
-
-.size-demo__check input:checked + .size-demo__check-box {
-  border-color: var(--control-color-thumb);
-  background: var(--control-color-thumb);
-}
-
-.size-demo__check input:checked + .size-demo__check-box::after {
-  content: "";
-  position: absolute;
-  top: 0.125rem;
-  left: 0.34375rem;
-  width: 0.25rem;
-  height: 0.5rem;
-  border: solid var(--color-white);
-  border-width: 0 0.125rem 0.125rem 0;
-  transform: rotate(45deg);
-}
-
-.size-demo__check input:focus-visible + .size-demo__check-box {
-  outline: 0.125rem solid var(--focus-color-ring);
-  outline-offset: 0.1875rem;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .size-demo__check-box {
-    transition: none;
-  }
-}
-
-@media (forced-colors: active) {
-  .size-demo__check input {
-    position: static;
-    appearance: auto;
-    opacity: 1;
-  }
-
-  .size-demo__check-box {
-    display: none;
-  }
 }
 
 @media (max-width: 42rem) {

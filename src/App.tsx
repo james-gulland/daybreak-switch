@@ -2,13 +2,12 @@ import { useState, type CSSProperties } from "react";
 import { DaybreakSwitch } from "./components/DaybreakSwitch";
 import "./App.css";
 
-const SIZE_MIN = 40;
+const SIZE_MIN = 32;
 const SIZE_MAX = 120;
-const SIZE_DEFAULT = 80;
+const SIZE_DEFAULT = 76;
 
 function SizePlayground() {
   const [size, setSize] = useState(SIZE_DEFAULT);
-  const [disabled, setDisabled] = useState(false);
 
   return (
     <section className="size-demo" aria-labelledby="size-demo-title">
@@ -32,38 +31,42 @@ function SizePlayground() {
         </div>
 
         <div className="size-demo__playground">
-          <div className="size-demo__stage" style={{ "--max-h": `${SIZE_MAX}px` } as CSSProperties}>
-            <DaybreakSwitch size={size} disabled={disabled} aria-label="Size playground switch" />
+          <div className="size-demo__example">
+            <span id="size-demo-disabled-label">Disabled</span>
+            <DaybreakSwitch
+              disabled
+              defaultChecked
+              size={SIZE_DEFAULT}
+              aria-labelledby="size-demo-disabled-label"
+            />
           </div>
 
-          <div className="size-demo__control">
-            <div className="size-demo__control-row">
-              <label htmlFor="size-slider">Size</label>
-              <output htmlFor="size-slider">{size}px</output>
+          <div className="size-demo__example">
+            <div
+              className="size-demo__stage"
+              style={{ "--max-h": `${SIZE_MAX}px` } as CSSProperties}
+            >
+              <DaybreakSwitch size={size} aria-label="Size example" />
             </div>
-            <input
-              id="size-slider"
-              type="range"
-              min={SIZE_MIN}
-              max={SIZE_MAX}
-              value={size}
-              onChange={event => setSize(Number(event.target.value))}
-            />
-            <div className="size-demo__ticks" aria-hidden="true">
-              <span>{SIZE_MIN}</span>
-              <span>{SIZE_MAX}</span>
+            <div className="size-demo__control">
+              <div className="size-demo__control-row">
+                <output htmlFor="size-slider">{size}px</output>
+              </div>
+              <input
+                id="size-slider"
+                type="range"
+                min={SIZE_MIN}
+                max={SIZE_MAX}
+                value={size}
+                onChange={event => setSize(Number(event.target.value))}
+              />
+              <div className="size-demo__ticks" aria-hidden="true">
+                <span>{SIZE_MIN}</span>
+                <span>{SIZE_MAX}</span>
+              </div>
             </div>
+            <label htmlFor="size-slider">Size</label>
           </div>
-
-          <label className="size-demo__check">
-            <input
-              type="checkbox"
-              checked={disabled}
-              onChange={event => setDisabled(event.target.checked)}
-            />
-            <span className="size-demo__check-box" aria-hidden="true" />
-            <span>Disabled</span>
-          </label>
         </div>
       </div>
     </section>
@@ -124,21 +127,26 @@ function App() {
           <div className="info__copy">
             <h2 id="info-title">Remember this guy?</h2>
             <p>
-              It's the classic UX designer vs. developer meme - the struggles were real! However,
-              that was until AI tools came along and can now recreate in minutes...
+              It's the classic UX designer vs. developer meme - the struggle was real! At least, it
+              was until AI tools came along and made it possible to recreate something like this in
+              minutes…
             </p>
             <p>
-              I used Fable 5.1 to do a lot of the heavy lifting on the layout and the animation, but
-              as always with these tools, I had to apply design finesse to get it exactly how I
-              wanted. It repeatedly got the clouds wrong, and despite a number of revisions, I ended
-              up rendering them manually.
+              So I thought I would take a stab at it. I used Fable 5.1 to do much of the heavy
+              lifting on the layout and animation. But, as always with these tools, it still needed
+              some design finesse to get it exactly how I wanted. It repeatedly struggled with the
+              cloud layers and, after several revisions, I ended up recreating them manually.
             </p>
             <p>
-              In Fable's defense, I was working from a static image found on Pinterest, as opposed
-              to a fully vectorised image from Figma. My experience is that if you provide exact
-              design instructions to the agents, the results will infinitely improve.
+              In Fable’s defence, I was working from a static image I found on Pinterest rather than
+              a fully vectorised design system. From my experience, when it can pull directly from
+              Figma - with the layers, dimensions and positioning already defined - the results are
+              noticeably more accurate.
             </p>
-            <p>The final result is a simple and fun switch that I hope you enjoy using.</p>
+            <p>
+              Even so, I’m really happy with how it turned out - a simple, playful switch that
+              hopefully feels as fun to use as it was to create.
+            </p>
           </div>
         </div>
       </section>
