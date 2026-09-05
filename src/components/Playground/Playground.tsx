@@ -17,7 +17,7 @@ export function Playground() {
           <p>
             Everything in the switch is driven by one number: <code>size</code>. It sets the track
             height in pixels, and the width follows at 2.2× that. The knob, the padding, the
-            shadows, even the halo rings - they all scale from it. Drag the slider and you'll see.
+            shadows, even the halo rings - they all scale from it. Drag the slider to check it out.
           </p>
           <p>
             There's also <code>disabled</code>, for when the switch should be visible but
