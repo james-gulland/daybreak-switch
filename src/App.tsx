@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="app">
       <section className="demo">
-        <h1>Day / Night switch</h1>
+        <h1>Daybreak Switch</h1>
 
         <div className="demo__row">
           <DaybreakSwitch defaultChecked={false} />
