@@ -3,18 +3,19 @@
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url("https://fonts.gstatic.com/s/molle/v25/E21n_dL5hOXFhWEsbz8sVg.woff2")
-    format("woff2");
+  src: url("https://fonts.gstatic.com/s/molle/v25/E21n_dL5hOXFhWEsbz8sVg.woff2") format("woff2");
 }
 
 :root {
   font:
-    16px/1.5 system-ui,
+    16px/1.5 "DM Sans",
+    system-ui,
     "Segoe UI",
     Roboto,
     sans-serif;
   color: #000;
   background: #fff;
+  font-weight: 500;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -23,7 +24,24 @@ body {
   margin: 0;
 }
 
+h1,
+h2 {
+  margin: 0;
+  font-family: "Molle", cursive;
+  font-size: 4rem;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
 #root,
 .app {
   min-height: 100vh;
+}
+
+@media (max-width: 42rem) {
+  h1,
+  h2 {
+    font-size: 3rem;
+  }
 }
