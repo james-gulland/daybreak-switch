@@ -15,20 +15,17 @@ npm install
 npm run dev
 ```
 
-```
-
 ## Using it in your own project
 
 There is no npm package. Copy the folder:
 
 ```
-
 src/components/DaybreakSwitch/
 ├── DaybreakSwitch.tsx
 ├── DaybreakSwitch.css
 └── index.ts
 
-````
+```
 
 The component imports its own CSS, so nothing else to wire up. It needs React 18 or newer and a bundler that can import a `.css` file from a module, which Vite, Next.js and Create React App all do.
 
@@ -38,7 +35,7 @@ import { DaybreakSwitch } from "./components/DaybreakSwitch";
 function Header() {
   return <DaybreakSwitch defaultChecked={false} />;
 }
-````
+```
 
 ## Props
 
