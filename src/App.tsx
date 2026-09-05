@@ -51,9 +51,9 @@ function App() {
         </p>
       </section>
 
-      <section className="background" aria-labelledby="background-title">
-        <div className="background__inner">
-          <div className="background__video">
+      <section className="info" aria-labelledby="info-title">
+        <div className="info__inner">
+          <div className="info__video">
             <iframe
               src="https://www.youtube-nocookie.com/embed/r6JXc4zfWw4"
               title="UX Designer vs Developer"
@@ -62,8 +62,8 @@ function App() {
             />
           </div>
 
-          <div className="background__copy">
-            <h2 id="background-title">remember this guy?</h2>
+          <div className="info__copy">
+            <h2 id="info-title">remember this guy?</h2>
             <p>It's the classic UX designer vs. developer meme. But oh how times have changed...</p>
             <p>
               With the assistance of Fable 5.1, I had recreated it in about 20 minutes. The first
