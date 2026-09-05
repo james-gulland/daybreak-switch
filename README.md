@@ -1,6 +1,6 @@
 # daybreak switch
 
-An animated day/night switch for React. Click it and the sun slides right, rolls over into a moon, the sky cross-fades to night, clouds sink out of frame and stars drift in. Everything is CSS and inline SVG, no animation library, no image assets.
+An animated day/night switch for React. Purely CSS-driven with inline SVGs, no animation library, no image assets.
 
 Under the hood it is a single `<button role="switch">`, so it keyboards and screen-reads like a checkbox.
 
