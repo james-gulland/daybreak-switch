@@ -55,10 +55,21 @@ function App() {
           <div className="info__copy">
             <h2 id="info-title">Remember this guy?</h2>
             <p>
-              It's the classic UX designer vs. developer meme. Oh how the struggles were real... but
-              with ai tools like Fable 5.1, it now takes minutes to create.
+              It's the classic UX designer vs. developer meme - the struggles were real! However,
+              that was until AI tools came along and can now recreate in minutes...
             </p>
-            <p></p>
+            <p>
+              I used Fable 5.1 to do a lot of the heavy lifting on the layout and the animation, but
+              as always with these tools, I had to apply design finesse to get it exactly how I
+              wanted. It repeatedly got the clouds wrong, and despite a number of revisions, I ended
+              up rendering them manually.
+            </p>
+            <p>
+              In Fable's defense, I was working from a static image found on Pinterest, as opposed
+              to a fully vectorised image from Figma. My experience is that if you provide exact
+              design instructions to the agents, the results will infinitely improve.
+            </p>
+            <p>The final result is a simple and fun switch that I hope you enjoy using.</p>
           </div>
         </div>
       </section>
