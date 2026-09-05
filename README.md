@@ -26,19 +26,19 @@ npm run preview
 There is no npm package. Copy the folder:
 
 ```
-src/components/DayNightSwitch/
-├── DayNightSwitch.tsx
-├── DayNightSwitch.css
+src/components/DaybreakSwitch/
+├── DaybreakSwitch.tsx
+├── DaybreakSwitch.css
 └── index.ts
 ```
 
 The component imports its own CSS, so nothing else to wire up. It needs React 18 or newer and a bundler that can import a `.css` file from a module, which Vite, Next.js and Create React App all do.
 
 ```tsx
-import { DayNightSwitch } from './components/DayNightSwitch'
+import { DaybreakSwitch } from './components/DaybreakSwitch'
 
 function Header() {
-  return <DayNightSwitch defaultChecked={false} />
+  return <DaybreakSwitch defaultChecked={false} />
 }
 ```
 
@@ -59,7 +59,7 @@ All props are optional.
 The props type is exported too:
 
 ```ts
-import type { DayNightSwitchProps } from './components/DayNightSwitch'
+import type { DaybreakSwitchProps } from './components/DaybreakSwitch'
 ```
 
 ## Controlled and uncontrolled
@@ -67,7 +67,7 @@ import type { DayNightSwitchProps } from './components/DayNightSwitch'
 Leave `checked` off and the switch keeps its own state. Use `onChange` if you want to hear about it:
 
 ```tsx
-<DayNightSwitch defaultChecked onChange={(night) => console.log(night)} />
+<DaybreakSwitch defaultChecked onChange={(night) => console.log(night)} />
 ```
 
 Pass `checked` and you own the state. The switch renders what you give it and will not move on its own, so you have to handle `onChange`:
@@ -75,7 +75,7 @@ Pass `checked` and you own the state. The switch renders what you give it and wi
 ```tsx
 const [dark, setDark] = useState(false)
 
-<DayNightSwitch checked={dark} onChange={setDark} size={32} />
+<DaybreakSwitch checked={dark} onChange={setDark} size={32} />
 ```
 
 Wiring it to a real theme usually looks like this:
@@ -89,7 +89,7 @@ useEffect(() => {
   document.documentElement.dataset.theme = dark ? 'dark' : 'light'
 }, [dark])
 
-return <DayNightSwitch checked={dark} onChange={setDark} aria-label="Dark mode" />
+return <DaybreakSwitch checked={dark} onChange={setDark} aria-label="Dark mode" />
 ```
 
 ## Sizing
@@ -113,7 +113,7 @@ You can also set `--h` from your own stylesheet instead of passing `size`, which
 ```
 
 ```tsx
-<DayNightSwitch className="my-switch" />
+<DaybreakSwitch className="my-switch" />
 ```
 
 ## Timing
@@ -135,7 +135,7 @@ Under `prefers-reduced-motion: reduce` the CSS sets `--dur: 0ms`, so the switch 
 
 ## Colours
 
-Colours are hardcoded in `DayNightSwitch.css` rather than exposed as variables, on the grounds that the sun, moon, sky and clouds are tuned to each other and a stray hue tends to break the illusion. To recolour it, edit the CSS. The parts worth knowing about:
+Colours are hardcoded in `DaybreakSwitch.css` rather than exposed as variables, on the grounds that the sun, moon, sky and clouds are tuned to each other and a stray hue tends to break the illusion. To recolour it, edit the CSS. The parts worth knowing about:
 
 | Selector | What it paints |
 | --- | --- |

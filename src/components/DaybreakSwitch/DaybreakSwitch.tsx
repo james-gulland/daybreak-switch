@@ -1,7 +1,7 @@
 import { useState, type CSSProperties } from 'react'
-import './DayNightSwitch.css'
+import './DaybreakSwitch.css'
 
-export type DayNightSwitchProps = {
+export type DaybreakSwitchProps = {
   /** Controlled value. `true` = night, `false` = day. */
   checked?: boolean
   /** Initial value for uncontrolled usage. */
@@ -14,7 +14,7 @@ export type DayNightSwitchProps = {
   'aria-label'?: string
 }
 
-export function DayNightSwitch({
+export function DaybreakSwitch({
   checked,
   defaultChecked = false,
   onChange,
@@ -22,7 +22,7 @@ export function DayNightSwitch({
   disabled = false,
   className,
   'aria-label': ariaLabel = 'Toggle dark mode',
-}: DayNightSwitchProps) {
+}: DaybreakSwitchProps) {
   const [internal, setInternal] = useState(defaultChecked)
   const isControlled = checked !== undefined
   const isNight = isControlled ? checked : internal
@@ -130,4 +130,4 @@ export function DayNightSwitch({
   )
 }
 
-export default DayNightSwitch
+export default DaybreakSwitch

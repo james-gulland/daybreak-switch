@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { DayNightSwitch } from './components/DayNightSwitch'
+import { DaybreakSwitch } from './components/DaybreakSwitch'
 import './App.css'
 
 function App() {
@@ -11,12 +11,12 @@ function App() {
         <h1>Day / Night switch</h1>
 
         <div className="demo__row">
-          <DayNightSwitch defaultChecked={false} />
-          <DayNightSwitch defaultChecked />
+          <DaybreakSwitch defaultChecked={false} />
+          <DaybreakSwitch defaultChecked />
         </div>
 
         <div className="demo__row demo__row--controlled">
-          <DayNightSwitch checked={dark} onChange={setDark} size={32} />
+          <DaybreakSwitch checked={dark} onChange={setDark} size={32} />
         </div>
       </section>
     </div>

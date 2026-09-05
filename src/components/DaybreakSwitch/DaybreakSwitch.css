@@ -1,5 +1,5 @@
 /*
- * DayNightSwitch
+ * DaybreakSwitch
  * Sizing is driven by --h (track height). Everything else derives from it.
  * Motion: a single ease-in-out curve, no overshoot, no bounce.
  */
