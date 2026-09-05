@@ -141,16 +141,15 @@ Under `prefers-reduced-motion: reduce` the CSS sets `--dur: 0ms`, so the switch 
 
 ## Colours
 
-Every switch colour is a CSS custom property declared together at the top of the `.dn-switch` rule in `DaybreakSwitch.css`. The `--dn-color-*` names group the day and night skies, clouds, stars, sun, moon, bevels, shadows, halo and focus state.
+The switch palette is declared together at the top of the `.dn-switch` rule in `DaybreakSwitch.css`. Solid colours use perceptually uniform OKLCH values, while related transparent shadows and highlights are derived from shared white, black and ink tokens. The more detailed sky and sun palettes are consolidated into `--dn-gradient-*` tokens.
 
 Override only the colours you need on a custom class:
 
 ```css
 .my-switch {
-  --dn-color-day-sky-start: #6d5dfc;
-  --dn-color-day-sky-middle: #9b8cff;
-  --dn-color-day-sky-end: #d4ccff;
-  --dn-color-sun-middle: #ff9f43;
+  --dn-gradient-day-sky: linear-gradient(90deg, oklch(62% 0.18 285), oklch(82% 0.1 285));
+  --dn-color-cloud-back: oklch(88% 0.06 285);
+  --dn-color-cloud-front: oklch(94% 0.03 285);
 }
 ```
 

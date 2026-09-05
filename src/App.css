@@ -88,7 +88,7 @@
   overflow: hidden;
   border-radius: 1.5rem;
   background: var(--page-color-video);
-  box-shadow: 0 1.5rem 4rem var(--page-color-video-shadow);
+  box-shadow: 0 1.5rem 4rem oklch(from var(--page-color-shadow) l c h / 20%);
 }
 
 .info__video iframe {
@@ -263,13 +263,13 @@
 
 .size-demo__control input[type="range"]:focus-visible::-webkit-slider-thumb {
   box-shadow:
-    0 0 0 0.1875rem var(--focus-color-halo),
+    0 0 0 0.1875rem var(--page-color-background),
     0 0 0 0.3125rem var(--focus-color-ring);
 }
 
 .size-demo__control input[type="range"]:focus-visible::-moz-range-thumb {
   box-shadow:
-    0 0 0 0.1875rem var(--focus-color-halo),
+    0 0 0 0.1875rem var(--page-color-background),
     0 0 0 0.3125rem var(--focus-color-ring);
 }
 
@@ -331,7 +331,7 @@
   left: 0.34375rem;
   width: 0.25rem;
   height: 0.5rem;
-  border: solid var(--control-color-checkmark);
+  border: solid var(--color-white);
   border-width: 0 0.125rem 0.125rem 0;
   transform: rotate(45deg);
 }

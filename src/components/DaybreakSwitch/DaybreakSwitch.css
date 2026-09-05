@@ -14,45 +14,52 @@
   --dur: 600ms;
   --ease: cubic-bezier(0.45, 0.05, 0.2, 1);
 
-  /* Colours: override any of these on .dn-switch or a custom class. */
-  --dn-color-focus-ring: #111827;
-  --dn-color-focus-halo: #f8fafc;
-  --dn-color-bevel-shadow: rgba(8, 20, 50, 0.3);
-  --dn-color-bevel-shadow-soft: rgba(8, 20, 50, 0.12);
-  --dn-color-bevel-highlight: rgba(255, 255, 255, 0.9);
-  --dn-color-bevel-highlight-soft: rgba(255, 255, 255, 0.5);
-  --dn-color-day-track: #3d97e4;
-  --dn-color-day-inset: rgba(8, 20, 50, 0.42);
-  --dn-color-day-inset-deep: rgba(8, 20, 50, 0.58);
-  --dn-color-night-track: #1d2030;
-  --dn-color-night-inset: rgba(0, 0, 0, 0.55);
-  --dn-color-night-inset-deep: rgba(0, 0, 0, 0.6);
-  --dn-color-night-inset-highlight: rgba(255, 255, 255, 0.08);
-  --dn-color-day-sky-start: #2f89dc;
-  --dn-color-day-sky-middle: #4ba3ea;
-  --dn-color-day-sky-end: #7cc0f4;
-  --dn-color-night-sky-start: #171a26;
-  --dn-color-night-sky-middle: #22263a;
-  --dn-color-night-sky-end: #2c3148;
-  --dn-color-stars: #fff;
-  --dn-color-cloud-shadow: #1d4f8a;
-  --dn-color-cloud-back: #a4d3f6;
-  --dn-color-cloud-front: #cde4fa;
-  --dn-color-halo: rgba(255, 255, 255, 0.07);
-  --dn-color-knob-shadow: rgba(0, 0, 0, 0.35);
-  --dn-color-knob-shadow-soft: rgba(0, 0, 0, 0.25);
-  --dn-color-sun-top: #ffd952;
-  --dn-color-sun-middle: #ffcc2e;
-  --dn-color-sun-bottom: #fdc21f;
-  --dn-color-sun-rim-light: #ffe680;
-  --dn-color-sun-rim-gold: #ffd54a;
-  --dn-color-sun-rim-shadow: #f2a800;
-  --dn-color-sun-rim-deep: #d98c00;
-  --dn-color-moon-crater: #9ba3b4;
-  --dn-color-moon-crater-shadow: #6f778a;
-  --dn-color-moon-crater-highlight: #dfe3ea;
-  --dn-color-moon-face: #cfd4de;
-  --dn-color-moon-shade: rgba(0, 0, 0, 0.14);
+  /* Palette: OKLCH keeps adjustments perceptually predictable. */
+  --dn-color-white: oklch(100% 0 0);
+  --dn-color-black: oklch(0% 0 0);
+  --dn-color-ink: oklch(20.1151% 0.06199 264.8);
+  --dn-color-focus-ring: oklch(21.0084% 0.03176 264.66);
+  --dn-color-focus-halo: oklch(98.4152% 0.00341 247.86);
+  --dn-color-day-track: oklch(65.8176% 0.14287 247.94);
+  --dn-color-night-track: oklch(24.8289% 0.03076 275.74);
+  --dn-gradient-day-sky: linear-gradient(
+    90deg,
+    oklch(61.8189% 0.1508 250.34) 0%,
+    oklch(69.2818% 0.13448 245.87) 55%,
+    oklch(78.2303% 0.10159 242.59) 100%
+  );
+  --dn-gradient-night-sky: linear-gradient(
+    90deg,
+    oklch(22.0539% 0.02399 273.43) 0%,
+    oklch(27.4403% 0.03757 274.97) 60%,
+    oklch(31.9091% 0.04172 274.38) 100%
+  );
+  --dn-color-stars: var(--dn-color-white);
+  --dn-color-cloud-shadow: oklch(42.6461% 0.11146 254.77);
+  --dn-color-cloud-back: oklch(84.5737% 0.06947 240.83);
+  --dn-color-cloud-front: oklch(90.8748% 0.03889 247.06);
+  --dn-gradient-sun-face: linear-gradient(
+      180deg,
+      oklch(89.4007% 0.15424 93.11) 0%,
+      oklch(86.6336% 0.16672 88.99) 55%,
+      oklch(84.4493% 0.16745 85.47) 100%
+    )
+    padding-box;
+  --dn-gradient-sun-rim: conic-gradient(
+      from 0deg,
+      oklch(92.4638% 0.12539 95.92) 0deg,
+      oklch(88.5528% 0.15704 91.66) 70deg,
+      oklch(78.3038% 0.1638 77.04) 130deg,
+      oklch(70.2294% 0.15137 70.84) 180deg,
+      oklch(78.3038% 0.1638 77.04) 230deg,
+      oklch(88.5528% 0.15704 91.66) 290deg,
+      oklch(92.4638% 0.12539 95.92) 360deg
+    )
+    border-box;
+  --dn-color-moon-crater: oklch(71.4574% 0.02635 265.52);
+  --dn-color-moon-crater-shadow: oklch(56.9269% 0.03087 267.31);
+  --dn-color-moon-crater-highlight: oklch(91.4799% 0.01044 261.79);
+  --dn-color-moon-face: oklch(86.905% 0.01481 264.49);
 
   all: unset;
   position: relative;
@@ -65,13 +72,13 @@
   /* bevel ring: dark lip at the top (0deg) sweeping to a light lip at the bottom (180deg) */
   background: conic-gradient(
     from 0deg,
-    var(--dn-color-bevel-shadow) 0deg,
-    var(--dn-color-bevel-shadow-soft) 70deg,
-    var(--dn-color-bevel-highlight-soft) 130deg,
-    var(--dn-color-bevel-highlight) 180deg,
-    var(--dn-color-bevel-highlight-soft) 230deg,
-    var(--dn-color-bevel-shadow-soft) 290deg,
-    var(--dn-color-bevel-shadow) 360deg
+    oklch(from var(--dn-color-ink) l c h / 30%) 0deg,
+    oklch(from var(--dn-color-ink) l c h / 12%) 70deg,
+    oklch(from var(--dn-color-white) l c h / 50%) 130deg,
+    oklch(from var(--dn-color-white) l c h / 90%) 180deg,
+    oklch(from var(--dn-color-white) l c h / 50%) 230deg,
+    oklch(from var(--dn-color-ink) l c h / 12%) 290deg,
+    oklch(from var(--dn-color-ink) l c h / 30%) 360deg
   );
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
@@ -120,18 +127,18 @@
   pointer-events: none;
   z-index: 1;
   box-shadow:
-    inset 0 0 calc(var(--h) * 0.2) var(--dn-color-day-inset),
-    inset 0 calc(var(--h) * 0.16) calc(var(--h) * 0.1) var(--dn-color-day-inset-deep);
+    inset 0 0 calc(var(--h) * 0.2) oklch(from var(--dn-color-ink) l c h / 42%),
+    inset 0 calc(var(--h) * 0.16) calc(var(--h) * 0.1) oklch(from var(--dn-color-ink) l c h / 58%);
   transition: box-shadow var(--dur) var(--ease);
 }
 
 .dn-switch[data-state="night"] .dn-switch__inset {
   box-shadow:
-    inset 0 0 calc(var(--h) * 0.1) var(--dn-color-night-inset),
+    inset 0 0 calc(var(--h) * 0.1) oklch(from var(--dn-color-black) l c h / 55%),
     inset 0 calc(var(--h) * 0.06) calc(var(--h) * 0.12)
-      var(--dn-color-night-inset-deep),
+      oklch(from var(--dn-color-black) l c h / 60%),
     inset 0 calc(var(--h) * -0.02) calc(var(--h) * 0.05)
-      var(--dn-color-night-inset-highlight);
+      oklch(from var(--dn-color-white) l c h / 8%);
 }
 
 .dn-switch[data-state="night"] .dn-switch__track {
@@ -146,22 +153,12 @@
 }
 
 .dn-switch__sky--day {
-  background: linear-gradient(
-    90deg,
-    var(--dn-color-day-sky-start) 0%,
-    var(--dn-color-day-sky-middle) 55%,
-    var(--dn-color-day-sky-end) 100%
-  );
+  background: var(--dn-gradient-day-sky);
   opacity: 1;
 }
 
 .dn-switch__sky--night {
-  background: linear-gradient(
-    90deg,
-    var(--dn-color-night-sky-start) 0%,
-    var(--dn-color-night-sky-middle) 60%,
-    var(--dn-color-night-sky-end) 100%
-  );
+  background: var(--dn-gradient-night-sky);
   opacity: 0;
 }
 
@@ -229,7 +226,7 @@
   top: 50%;
   left: 50%;
   border-radius: 50%;
-  background: var(--dn-color-halo);
+  background: oklch(from var(--dn-color-white) l c h / 7%);
   translate: -50% -50%;
   pointer-events: none;
 }
@@ -254,8 +251,8 @@
   inset: 0;
   border-radius: 50%;
   box-shadow:
-    0 calc(var(--h) * 0.05) calc(var(--h) * 0.12) var(--dn-color-knob-shadow),
-    0 calc(var(--h) * 0.01) calc(var(--h) * 0.03) var(--dn-color-knob-shadow-soft);
+    0 calc(var(--h) * 0.05) calc(var(--h) * 0.12) oklch(from var(--dn-color-black) l c h / 35%),
+    0 calc(var(--h) * 0.01) calc(var(--h) * 0.03) oklch(from var(--dn-color-black) l c h / 25%);
 }
 
 .dn-switch__sun,
@@ -271,25 +268,7 @@
 .dn-switch__sun {
   /* bevel rim: light lip at the top sweeping to a deep orange lip at the bottom */
   border: calc(var(--h) * 0.03) solid transparent;
-  background:
-    linear-gradient(
-        180deg,
-        var(--dn-color-sun-top) 0%,
-        var(--dn-color-sun-middle) 55%,
-        var(--dn-color-sun-bottom) 100%
-      )
-      padding-box,
-    conic-gradient(
-        from 0deg,
-        var(--dn-color-sun-rim-light) 0deg,
-        var(--dn-color-sun-rim-gold) 70deg,
-        var(--dn-color-sun-rim-shadow) 130deg,
-        var(--dn-color-sun-rim-deep) 180deg,
-        var(--dn-color-sun-rim-shadow) 230deg,
-        var(--dn-color-sun-rim-gold) 290deg,
-        var(--dn-color-sun-rim-light) 360deg
-      )
-      border-box;
+  background: var(--dn-gradient-sun-face), var(--dn-gradient-sun-rim);
   opacity: 1;
 }
 
@@ -301,40 +280,28 @@
    */
   background:
     radial-gradient(circle at 30% 47.8%, var(--dn-color-moon-crater) 0 17%, transparent 18%),
-    radial-gradient(
-      circle at 30% 46%,
-      var(--dn-color-moon-crater-shadow) 0 17%,
-      transparent 18%
-    ),
+    radial-gradient(circle at 30% 46%, var(--dn-color-moon-crater-shadow) 0 17%, transparent 18%),
     radial-gradient(
       circle at 30% 49.2%,
       var(--dn-color-moon-crater-highlight) 0 17%,
       transparent 18%
     ),
     radial-gradient(circle at 62% 25%, var(--dn-color-moon-crater) 0 9%, transparent 10%),
-    radial-gradient(
-      circle at 62% 24%,
-      var(--dn-color-moon-crater-shadow) 0 9%,
-      transparent 10%
-    ),
+    radial-gradient(circle at 62% 24%, var(--dn-color-moon-crater-shadow) 0 9%, transparent 10%),
     radial-gradient(
       circle at 62% 25.8%,
       var(--dn-color-moon-crater-highlight) 0 9%,
       transparent 10%
     ),
     radial-gradient(circle at 68% 71.4%, var(--dn-color-moon-crater) 0 13%, transparent 14%),
-    radial-gradient(
-      circle at 68% 70%,
-      var(--dn-color-moon-crater-shadow) 0 13%,
-      transparent 14%
-    ),
+    radial-gradient(circle at 68% 70%, var(--dn-color-moon-crater-shadow) 0 13%, transparent 14%),
     radial-gradient(
       circle at 68% 72.6%,
       var(--dn-color-moon-crater-highlight) 0 13%,
       transparent 14%
     ),
     var(--dn-color-moon-face);
-  box-shadow: inset 0 calc(var(--h) * -0.05) 0 var(--dn-color-moon-shade);
+  box-shadow: inset 0 calc(var(--h) * -0.05) 0 oklch(from var(--dn-color-black) l c h / 14%);
   opacity: 0;
   /* rolls into place as it fades in */
   transform: rotate(-90deg);

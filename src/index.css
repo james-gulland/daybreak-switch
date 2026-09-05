@@ -7,24 +7,22 @@
 }
 
 :root {
-  /* Page colours: change these to retheme the demo. */
-  --page-color-canvas: #fff;
-  --page-color-base-text: #000;
-  --page-color-background: #e9ecf3;
-  --page-color-section: #dce2ee;
-  --page-color-heading: #2b3140;
-  --page-color-body: #475267;
-  --page-color-prompt: #5d6680;
-  --page-color-video: #161923;
-  --page-color-video-shadow: rgb(34 43 63 / 20%);
-  --control-color-track: #c5ccda;
-  --control-color-thumb: #7c8496;
-  --control-color-thumb-hover: #6b7385;
-  --control-color-border: #b3bbcb;
-  --control-color-border-hover: #939cae;
-  --control-color-checkmark: #fff;
-  --focus-color-ring: #111827;
-  --focus-color-halo: #e9ecf3;
+  /* Demo palette. OKLCH makes lightness and chroma easier to adjust. */
+  --color-white: oklch(100% 0 0);
+  --color-black: oklch(0% 0 0);
+  --page-color-background: oklch(94.2816% 0.00995 267.36);
+  --page-color-section: oklch(91.1753% 0.01757 264.48);
+  --page-color-heading: oklch(31.4005% 0.02826 267.76);
+  --page-color-body: oklch(43.7443% 0.03754 263.22);
+  --page-color-prompt: oklch(51.2552% 0.0428 269.94);
+  --page-color-video: oklch(21.5086% 0.02028 271.63);
+  --page-color-shadow: oklch(29.0266% 0.03893 265.42);
+  --control-color-track: oklch(84.4056% 0.02093 264.46);
+  --control-color-thumb: oklch(61.2904% 0.02885 266.46);
+  --control-color-thumb-hover: oklch(55.5173% 0.0296 266.41);
+  --control-color-border: oklch(79.0803% 0.02434 264.43);
+  --control-color-border-hover: oklch(69.1439% 0.02837 264.37);
+  --focus-color-ring: oklch(21.0084% 0.03176 264.66);
 
   font:
     16px/1.5 "DM Sans",
@@ -32,8 +30,8 @@
     "Segoe UI",
     Roboto,
     sans-serif;
-  color: var(--page-color-base-text);
-  background: var(--page-color-canvas);
+  color: var(--color-black);
+  background: var(--color-white);
   font-weight: 500;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
