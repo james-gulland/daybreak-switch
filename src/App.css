@@ -128,6 +128,115 @@
   text-decoration: underline;
 }
 
+.size-demo {
+  padding: clamp(4rem, 8vw, 7rem) 2rem;
+  background: #e9ecf3;
+}
+
+.size-demo__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.75fr);
+  gap: clamp(2.5rem, 7vw, 6rem);
+  width: 100%;
+  max-width: 68rem;
+  margin: 0 auto;
+}
+
+.size-demo__playground {
+  display: grid;
+  gap: 1.5rem;
+  align-content: center;
+  justify-items: center;
+  justify-self: center;
+  align-self: center;
+}
+
+.size-demo__copy {
+  max-width: 34rem;
+}
+
+.size-demo__copy h2 {
+  margin: 0 0 1.25rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.size-demo__copy p {
+  margin: 0 0 1rem;
+  color: #475267;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+
+.size-demo__copy code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.9em;
+  font-weight: 600;
+  color: #2b3140;
+}
+
+.size-demo__stage {
+  --max-h: 120px;
+  --bevel: calc(var(--max-h) * 0.025);
+  display: grid;
+  place-items: center;
+  box-sizing: content-box;
+  width: calc(var(--max-h) * 2.2 + var(--bevel) * 2);
+  height: calc(var(--max-h) + var(--bevel) * 2);
+  padding: 0.75rem;
+}
+
+.size-demo__control {
+  display: grid;
+  gap: 0.5rem;
+  width: min(100%, 18rem);
+}
+
+.size-demo__control-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.size-demo__control output {
+  font-variant-numeric: tabular-nums;
+  color: #475267;
+}
+
+.size-demo__control input[type="range"] {
+  width: 100%;
+  margin: 0;
+  accent-color: #2f89dc;
+}
+
+.size-demo__ticks {
+  display: flex;
+  justify-content: space-between;
+  color: #475267;
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.size-demo__check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: min(100%, 18rem);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.size-demo__check input {
+  width: 1rem;
+  height: 1rem;
+  margin: 0;
+  accent-color: #2f89dc;
+}
+
 @media (max-width: 42rem) {
   .demo {
     min-height: 72vh;
@@ -146,6 +255,18 @@
   }
 
   .info__copy {
+    max-width: none;
+  }
+
+  .size-demo {
+    padding-inline: 1.25rem;
+  }
+
+  .size-demo__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .size-demo__copy {
     max-width: none;
   }
 }

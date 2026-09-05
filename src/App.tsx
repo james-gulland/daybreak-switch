@@ -1,5 +1,71 @@
+import { useState, type CSSProperties } from "react";
 import { DaybreakSwitch } from "./components/DaybreakSwitch";
 import "./App.css";
+
+const SIZE_MIN = 40;
+const SIZE_MAX = 120;
+const SIZE_DEFAULT = 80;
+
+function SizePlayground() {
+  const [size, setSize] = useState(SIZE_DEFAULT);
+  const [disabled, setDisabled] = useState(false);
+
+  return (
+    <section className="size-demo" aria-labelledby="size-demo-title">
+      <div className="size-demo__inner">
+        <div className="size-demo__copy">
+          <h2 id="size-demo-title">Make it yours</h2>
+          <p>
+            Everything in the switch is driven by one number: <code>size</code>. It sets the track
+            height in pixels (120 by default), and the width follows at 2.2× that. The knob, the
+            padding, the shadows, even the halo rings — they all scale from it, so a 40px switch is
+            a miniature of the 120px one, not a cropped version. Drag the slider and you'll see.
+          </p>
+          <p>
+            There's also <code>disabled</code>, for when the switch should be visible but
+            off-limits. It blocks clicks, sets the native disabled state, fades the opacity to 0.6
+            and swaps in a not-allowed cursor. Tick the checkbox to lock it, then try clicking — it
+            won't budge until you uncheck.
+          </p>
+        </div>
+
+        <div className="size-demo__playground">
+          <div className="size-demo__stage" style={{ "--max-h": `${SIZE_MAX}px` } as CSSProperties}>
+            <DaybreakSwitch size={size} disabled={disabled} aria-label="Size playground switch" />
+          </div>
+
+          <div className="size-demo__control">
+            <div className="size-demo__control-row">
+              <label htmlFor="size-slider">Size</label>
+              <output htmlFor="size-slider">{size}px</output>
+            </div>
+            <input
+              id="size-slider"
+              type="range"
+              min={SIZE_MIN}
+              max={SIZE_MAX}
+              value={size}
+              onChange={event => setSize(Number(event.target.value))}
+            />
+            <div className="size-demo__ticks" aria-hidden="true">
+              <span>{SIZE_MIN}</span>
+              <span>{SIZE_MAX}</span>
+            </div>
+          </div>
+
+          <label className="size-demo__check">
+            <input
+              type="checkbox"
+              checked={disabled}
+              onChange={event => setDisabled(event.target.checked)}
+            />
+            Disabled
+          </label>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 function App() {
   return (
@@ -73,6 +139,8 @@ function App() {
           </div>
         </div>
       </section>
+
+      <SizePlayground />
     </main>
   );
 }
