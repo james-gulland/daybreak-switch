@@ -141,16 +141,20 @@ Under `prefers-reduced-motion: reduce` the CSS sets `--dur: 0ms`, so the switch 
 
 ## Colours
 
-Colours are hardcoded in `DaybreakSwitch.css` rather than exposed as variables, on the grounds that the sun, moon, sky and clouds are tuned to each other and a stray hue tends to break the illusion. To recolour it, edit the CSS. The parts worth knowing about:
+Every switch colour is a CSS custom property declared together at the top of the `.dn-switch` rule in `DaybreakSwitch.css`. The `--dn-color-*` names group the day and night skies, clouds, stars, sun, moon, bevels, shadows, halo and focus state.
 
-| Selector                           | What it paints                                                                              |
-| ---------------------------------- | ------------------------------------------------------------------------------------------- |
-| `.dn-switch`                       | Outer bevel ring, a conic gradient with a dark top lip and a light bottom lip               |
-| `.dn-switch__sky--day` / `--night` | The two sky gradients, cross-faded rather than tweened, because gradients don't interpolate |
-| `.dn-switch__inset`                | Inset shadows that make the track look recessed                                             |
-| `.dn-switch__clouds` / `__stars`   | The SVG scenery, which slides vertically and fades                                          |
-| `.dn-switch__sun` / `__moon`       | The two knob faces. The moon's craters are stacked radial gradients                         |
-| `.dn-switch__ring--1/2/3`          | Concentric halo rings that travel with the knob and get clipped by the track                |
+Override only the colours you need on a custom class:
+
+```css
+.my-switch {
+  --dn-color-day-sky-start: #6d5dfc;
+  --dn-color-day-sky-middle: #9b8cff;
+  --dn-color-day-sky-end: #d4ccff;
+  --dn-color-sun-middle: #ff9f43;
+}
+```
+
+Because the variables live on the component root, different switch instances can use different palettes. The demo page's own `--page-color-*`, `--control-color-*` and `--focus-color-*` variables are grouped in `src/index.css`.
 
 The root element carries `data-state="day"` or `data-state="night"`, which is what all the state-dependent rules key off. Useful if you want to add your own.
 

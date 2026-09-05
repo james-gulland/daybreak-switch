@@ -61,7 +61,8 @@ function SizePlayground() {
               checked={disabled}
               onChange={event => setDisabled(event.target.checked)}
             />
-            Disabled
+            <span className="size-demo__check-box" aria-hidden="true" />
+            <span>Disabled</span>
           </label>
         </div>
       </div>

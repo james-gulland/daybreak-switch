@@ -68,7 +68,7 @@ export function DaybreakSwitch({
           preserveAspectRatio="xMidYMid slice"
           aria-hidden="true"
         >
-          <g fill="#fff">
+          <g fill="var(--dn-color-stars)">
             <circle cx="26" cy="24" r="2.0" />
             <circle cx="58" cy="66" r="1.7" />
             <circle cx="74" cy="42" r="1.5" />
@@ -100,13 +100,13 @@ export function DaybreakSwitch({
                 dx="0"
                 dy="-2"
                 stdDeviation="2"
-                floodColor="#1d4f8a"
+                floodColor="var(--dn-color-cloud-shadow)"
                 floodOpacity="0.18"
               />
             </filter>
           </defs>
           {/* back band */}
-          <g fill="#a4d3f6" filter={`url(#${filterId})`}>
+          <g fill="var(--dn-color-cloud-back)" filter={`url(#${filterId})`}>
             <circle cx="20" cy="62" r="40" />
             <circle cx="60" cy="90" r="40" />
             <circle cx="110" cy="86" r="38" />
@@ -115,7 +115,7 @@ export function DaybreakSwitch({
             <circle cx="220" cy="44" r="38" />
           </g>
           {/* front band */}
-          <g fill="#cde4fa" filter={`url(#${filterId})`}>
+          <g fill="var(--dn-color-cloud-front)" filter={`url(#${filterId})`}>
             <circle cx="64" cy="105" r="20" />
             <circle cx="110" cy="116" r="40" />
             <circle cx="152" cy="88" r="20" />
