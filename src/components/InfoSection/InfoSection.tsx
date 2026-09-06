@@ -6,7 +6,7 @@ export function InfoSection() {
       <div className="info__inner">
         <div className="info__video">
           <iframe
-            src="https://www.youtube-nocookie.com/embed/r6JXc4zfWw4"
+            src="https://www.youtube-nocookie.com/embed/r6JXc4zfWw4?loop=1&playlist=r6JXc4zfWw4"
             title="UX Designer vs Developer"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
