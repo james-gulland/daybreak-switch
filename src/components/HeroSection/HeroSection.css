@@ -27,7 +27,6 @@
   justify-items: center;
 }
 
-.hero__item label,
 .hero__item > span {
   font-size: 0.875rem;
   font-weight: 500;

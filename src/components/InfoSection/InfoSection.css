@@ -41,7 +41,7 @@
   letter-spacing: -0.04em;
 }
 
-.info__copy p:not(.info__eyebrow) {
+.info__copy p {
   margin: 0 0 1rem;
   color: var(--page-color-body);
   font-size: 1.0625rem;
