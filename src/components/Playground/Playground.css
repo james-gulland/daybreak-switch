@@ -52,6 +52,11 @@
   line-height: 1.75;
 }
 
+.size-demo__copy a {
+  color: inherit;
+  text-decoration: underline;
+}
+
 .size-demo__copy code {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 0.9em;
