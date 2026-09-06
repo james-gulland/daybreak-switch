@@ -34,11 +34,7 @@ export function HeroSection() {
       </div>
 
       <p className="credit">
-        a purely css-driven day / night switch for react. created by{" "}
-        <a href="https://jamesgulland.com" target="_blank">
-          james gulland
-        </a>
-        . grab the code{" "}
+        a purely css-driven day / night switch for react grab the code{" · "}
         <a href="https://github.com/james-gulland/daybreak-switch" target="_blank">
           here
         </a>

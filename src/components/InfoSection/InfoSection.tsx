@@ -22,9 +22,9 @@ export function InfoSection() {
           </p>
           <p>
             So, I thought I would take a stab at it. It’s built as a button with layered SVGs
-            brought to life using CSS animations. I used Fable 5.1 for much of the heavy lifting,
-            though it still needed a lot of design finesse - it repeatedly struggled with the cloud
-            layers, so I ended up recreating them manually.
+            animated entirely through CSS. I used Fable 5.1 for much of the heavy lifting, though it
+            still needed a lot of design finesse - it repeatedly struggled with the cloud layers, so
+            I ended up recreating them manually.
           </p>
           <p>
             In Fable’s defence, I was working from a static image I found on Pinterest rather than a

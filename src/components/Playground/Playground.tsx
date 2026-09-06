@@ -28,6 +28,13 @@ export function Playground() {
             Accessibility is built in too, with keyboard support, screen-reader labels, a clear
             focus state, reduced-motion support and high-contrast styling.
           </p>
+          <p>
+            Check out the repo{" "}
+            <a href="https://github.com/james-gulland/daybreak-switch" target="_blank">
+              here
+            </a>
+            .
+          </p>
         </div>
 
         <div className="size-demo__playground">
