@@ -19,7 +19,7 @@ export function HeroSection() {
             <span id="hero-night-label">Starts on night</span>
             <DaybreakSwitch defaultChecked aria-labelledby="hero-night-label" />
             <pre className="hero__code">
-              <code>{`<DaybreakSwitch defaultChecked>`}</code>
+              <code>{`<DaybreakSwitch defaultChecked />`}</code>
             </pre>
           </div>
         </div>

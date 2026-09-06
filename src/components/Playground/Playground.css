@@ -67,7 +67,6 @@
   box-sizing: content-box;
   width: calc(var(--max-h) * 2.2 + var(--bevel) * 2);
   height: calc(var(--max-h) + var(--bevel) * 2);
-  padding-bottom: 1rem;
 }
 
 .size-demo__control {
